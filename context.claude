@@ -1,0 +1,77 @@
+# Defect Diviner - Session Context
+
+## Current State (Jan 2025)
+
+**Model Performance (Optimal 3 features):**
+- CV ROC AUC: 0.746 (+/- 0.166)
+- Test ROC AUC: 0.847
+- Accuracy: 77%
+
+**Dataset:** 1,121 samples from 10 repos (`dataset_production.csv`)
+
+## Critical Finding: Less is More
+
+Most features add noise. Rigorous ablation study found:
+
+| Feature Set | CV ROC AUC | Variance |
+|-------------|------------|----------|
+| All 19 features | 0.658 | +/- 0.246 |
+| Just `num_bug_fixes` | 0.671 | +/- 0.152 |
+| **Optimal 3 features** | **0.746** | **+/- 0.166** |
+
+**Optimal feature set:**
+```
+num_bug_fixes     67%  (files with past bugs get more bugs)
+file_age_commits  21%  (older files are more stable)
+lines_deleted     12%  (code churn indicator)
+```
+
+Everything else (code metrics, PR reviews, social features) is noise at this data size.
+
+## Project Structure
+
+```
+defect_diviner/          # Main package
+├── config.py            # Constants, OPTIMAL_FEATURE_COLS
+├── github.py            # GitHubIssueChecker, GitHubPRChecker
+├── features.py          # FileFeatures, code metrics
+├── extraction.py        # Repository mining
+├── model.py             # Training, evaluation
+└── diagnostics.py       # Repo quality analysis
+
+tests/                   # Test suite
+├── test_unit.py         # 15 unit tests
+└── test_features.py     # Feature evaluation (re-run after changes)
+
+defect_predictor.py      # CLI entry point
+```
+
+## Usage
+
+```bash
+# Standard (all features)
+python defect_predictor.py --repos https://github.com/user/repo
+
+# Optimal model (recommended)
+python defect_predictor.py --repos https://github.com/user/repo --optimal
+
+# Run tests
+python -m pytest tests/ -v
+
+# Feature evaluation report
+python tests/test_features.py
+```
+
+## Key Learnings
+
+1. **One feature dominates:** `num_bug_fixes` alone beats 19 features combined
+2. **More features ≠ better:** With 1k samples, most features add noise
+3. **CV > test split:** Single train/test splits are misleading (0.93 vs 0.66 ROC AUC)
+4. **Code metrics don't work:** Complexity, LOC, maintainability are noise
+5. **History is king:** Past bugs predict future bugs
+
+## What's Next
+
+- **More data** - Need 5-10x samples for weaker features to show value
+- **Better labels** - SZZ algorithm for research-grade accuracy
+- **NOT more features** - Diminishing returns hit hard
