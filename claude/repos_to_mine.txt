@@ -1,0 +1,184 @@
+# Curated Python Repos for Defect Prediction Training
+# Target: ~5,000 samples from diverse, well-maintained projects
+#
+# Selection criteria:
+# - Active maintenance (commits in last 6 months)
+# - Good commit message practices
+# - Pure/mostly Python
+# - Mix of sizes and domains
+#
+# Run with:
+#   python defect_predictor.py --repos $(cat repos_to_mine.txt | grep "^https" | tr '\n' ' ')
+
+# =============================================================================
+# WEB FRAMEWORKS (high activity, good practices)
+# =============================================================================
+https://github.com/pallets/flask
+https://github.com/django/django
+https://github.com/tiangolo/fastapi
+https://github.com/encode/starlette
+https://github.com/encode/httpx
+https://github.com/sanic-org/sanic
+https://github.com/bottlepy/bottle
+https://github.com/falconry/falcon
+https://github.com/tornadoweb/tornado
+
+# =============================================================================
+# CLI & TERMINAL (pallets team = great commit hygiene)
+# =============================================================================
+https://github.com/pallets/click
+https://github.com/tiangolo/typer
+https://github.com/Textualize/rich
+https://github.com/Textualize/textual
+https://github.com/tqdm/tqdm
+https://github.com/willmcgugan/rich
+https://github.com/prompt-toolkit/python-prompt-toolkit
+
+# =============================================================================
+# HTTP & NETWORKING
+# =============================================================================
+https://github.com/psf/requests
+https://github.com/urllib3/urllib3
+https://github.com/aio-libs/aiohttp
+https://github.com/encode/httpcore
+https://github.com/kevin1024/vcrpy
+
+# =============================================================================
+# DATA VALIDATION & SERIALIZATION
+# =============================================================================
+https://github.com/pydantic/pydantic
+https://github.com/python-attrs/attrs
+https://github.com/marshmallow-code/marshmallow
+https://github.com/python-jsonschema/jsonschema
+https://github.com/lidatong/dataclasses-json
+
+# =============================================================================
+# DATABASES & ORMs
+# =============================================================================
+https://github.com/sqlalchemy/sqlalchemy
+https://github.com/sqlalchemy/alembic
+https://github.com/coleifer/peewee
+https://github.com/tortoise/tortoise-orm
+https://github.com/piccolo-orm/piccolo
+https://github.com/encode/databases
+https://github.com/redis/redis-py
+
+# =============================================================================
+# TESTING
+# =============================================================================
+https://github.com/pytest-dev/pytest
+https://github.com/HypothesisWorks/hypothesis
+https://github.com/tox-dev/tox
+https://github.com/pytest-dev/pytest-cov
+https://github.com/pytest-dev/pytest-asyncio
+https://github.com/getsentry/responses
+https://github.com/kevin1024/pytest-httpserver
+
+# =============================================================================
+# CODE QUALITY & TOOLING
+# =============================================================================
+https://github.com/psf/black
+https://github.com/astral-sh/ruff
+https://github.com/python/mypy
+https://github.com/pylint-dev/pylint
+https://github.com/PyCQA/flake8
+https://github.com/PyCQA/isort
+https://github.com/PyCQA/bandit
+https://github.com/pre-commit/pre-commit
+
+# =============================================================================
+# ASYNC & CONCURRENCY
+# =============================================================================
+https://github.com/python-trio/trio
+https://github.com/agronholm/anyio
+https://github.com/MagicStack/uvloop
+https://github.com/Tinche/aiofiles
+
+# =============================================================================
+# CONFIGURATION & ENVIRONMENT
+# =============================================================================
+https://github.com/theskumar/python-dotenv
+https://github.com/rochacbruno/dynaconf
+https://github.com/omry/omegaconf
+https://github.com/sloria/environs
+
+# =============================================================================
+# LOGGING & MONITORING
+# =============================================================================
+https://github.com/Delgan/loguru
+https://github.com/hynek/structlog
+https://github.com/getsentry/sentry-python
+
+# =============================================================================
+# DATE/TIME
+# =============================================================================
+https://github.com/arrow-py/arrow
+https://github.com/sdispater/pendulum
+https://github.com/dateutil/dateutil
+
+# =============================================================================
+# TASK QUEUES & SCHEDULING
+# =============================================================================
+https://github.com/celery/celery
+https://github.com/rq/rq
+https://github.com/coleifer/huey
+https://github.com/agronholm/apscheduler
+
+# =============================================================================
+# TEMPLATING
+# =============================================================================
+https://github.com/pallets/jinja
+https://github.com/pallets/markupsafe
+
+# =============================================================================
+# SECURITY & CRYPTO
+# =============================================================================
+https://github.com/pyca/cryptography
+https://github.com/jpadilla/pyjwt
+https://github.com/pyca/bcrypt
+
+# =============================================================================
+# UTILITIES
+# =============================================================================
+https://github.com/pytoolz/toolz
+https://github.com/more-itertools/more-itertools
+https://github.com/mahmoud/boltons
+https://github.com/dry-python/returns
+https://github.com/Suor/funcy
+
+# =============================================================================
+# API & GRAPHQL
+# =============================================================================
+https://github.com/graphql-python/graphene
+https://github.com/strawberry-graphql/strawberry
+https://github.com/python-restx/flask-restx
+
+# =============================================================================
+# PARSING & TEXT
+# =============================================================================
+https://github.com/pyparsing/pyparsing
+https://github.com/yaml/pyyaml
+https://github.com/toml-lang/toml
+https://github.com/un33k/python-slugify
+
+# =============================================================================
+# FILE HANDLING
+# =============================================================================
+https://github.com/gorakhargosh/watchdog
+https://github.com/ActiveState/appdirs
+https://github.com/aio-libs/aiobotocore
+
+# =============================================================================
+# ML/DATA (smaller focused libs, not huge monoliths)
+# =============================================================================
+https://github.com/scikit-learn/scikit-learn
+https://github.com/dmlc/xgboost
+https://github.com/microsoft/LightGBM
+https://github.com/catboost/catboost
+https://github.com/pola-rs/polars
+
+# =============================================================================
+# TOTAL: ~95 repos
+# Expected samples: ~5,000-7,000 (at 50-75 samples per repo)
+# Estimated API calls: ~50,000-100,000 (2-3 hours with token)
+# =============================================================================

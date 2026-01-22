@@ -26,3 +26,7 @@ defect_dataset.csv
 .env
 venv/
 .venv/
+
+# Batch mining
+test_batch.csv
+batch_outputs/
